@@ -1,6 +1,6 @@
 <?php
 include 'database/connexpdo.php';
-session_abort();
+
 //Connect BDD
 $db = connexpdo('pgsql:dbname=etudiants;host=localhost;port=5433','postgres','new_password');
 

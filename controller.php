@@ -18,6 +18,9 @@ if($_GET['func'] == 'UpdateStudent'){
 if($_GET['func'] == 'DeleteStudent'){
     DeleteStudent($_POST['Delete']);
 }
+if($_GET['func'] == 'Disconnect'){
+    Disconnect();
+}
 
 function CreateUser($login, $password, $mail, $nom, $prenom) {
 
@@ -40,25 +43,23 @@ function CreateUser($login, $password, $mail, $nom, $prenom) {
     header("Location: index.php");
 }
 
-function ConnectUser($login, $password){
+function ConnectUser($login, $password) {
 
-    $db = connexpdo('pgsql:dbname=etudiants;host=localhost;port=5433','postgres','new_password');
+    $db = connexpdo('pgsql:dbname=etudiants;host=localhost;port=5433', 'postgres', 'new_password');
 
     $q = "SELECT id, nom, prenom, password FROM users WHERE login = '$login'";
     $sth = $db->prepare($q);
     $sth->execute();
-    $r=$sth->fetchAll();
+    $r = $sth->fetchAll();
 
-    if (password_verify($password, $r[0]['password'])){
-
+    if (password_verify($password, $r[0]['password'])) {
+        $_SESSION["adminId"] = $r[0]['id'];
+        $_SESSION["adminPrenom"] = $r[0]['prenom'];
+        $_SESSION["adminNom"] = $r[0]['nom'];
         header("Location: viewadmin.php");
+    } else {
+        header("Location:index.php");
     }
-    else {
-        echo "Wrong Login or Password";
-    }
-    $_SESSION["adminId"] = $r[0]['id'];
-    $_SESSION["adminPrenom"] = $r[0]['prenom'];
-    $_SESSION["adminNom"] = $r[0]['nom'];
 }
 
 function CreateStudent($nom, $prenom, $note) {
@@ -172,5 +173,8 @@ function NotesAverage(){
     }else {
         return;
     }
+}
 
+function Disconnect(){
+    if(isset($_SESSION))unset($_SESSION);
 }

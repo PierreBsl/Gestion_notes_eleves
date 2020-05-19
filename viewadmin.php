@@ -14,7 +14,6 @@
 </head>
 <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
     <a class="navbar-brand" href="index.php">TP n°10 langage PHP & SQL</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
     </button>
 
 </nav>
@@ -32,7 +31,7 @@ $db = connexpdo('pgsql:dbname=etudiants;host=localhost;port=5433','postgres','ne
 echo '
 <div class="container col-sm-9 jumbotron" id="contact">
     <h2 style="display: inline;">Admin Panel of '.$user_prenom .' '. $user_nom.'</h2>
-        <a style="float: right;" href="index.php" class="button-pe-connect is-blue" data-toggle="tooltip" data-placement="bottom" title="">
+        <a style="float: right;" href="controller.php?func=Disconnect">
             <button class="btn btn-info">Deconnexion</button>
         </a>
     <hr>';
