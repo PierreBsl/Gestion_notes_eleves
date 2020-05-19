@@ -11,7 +11,7 @@ $db = connexpdo('pgsql:dbname=etudiants;host=localhost;port=5433','postgres','ne
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Sign In · TP n°10</title>
+    <title>Accueil · TP n°10</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
@@ -28,37 +28,40 @@ $db = connexpdo('pgsql:dbname=etudiants;host=localhost;port=5433','postgres','ne
     <div class="jumbotron">
         <div class=" mx-auto text-center">
             <h1 class="display-4">Bonjour</h1>
-            <p class="lead">Quickly build an effective pricing table for your potential customers with this Bootstrap example. It's built with default Bootstrap components and utilities with little customization.</p>
+            <p class="lead">Bienvue sur l'Environnement Numérique de Travail ISEN 2020. Ce site à été développé en PHP et SQL dans le cadre d'un TP. Il possède une partie Administrateur à partir de laquelle vous pourrez voir la liste de tous vos élèves, mettre à jour leurs informations et voir la moyenne de votre classe.</p>
         </div>
         <div class="container">
             <div class="card-deck mb-3 text-center">
                 <div class="card mb-4 box-shadow">
                     <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Connexion</h4>
+                        <h4 class="my-0 font-weight-normal">Connectez-vous</h4>
                     </div>
                     <div class="card-body">
-                        <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
+                        <h1 class="card-title pricing-card-title">Administrateur</h1>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>20 users included</li>
-                            <li>10 GB of storage</li>
-                            <li>Priority email support</li>
-                            <li>Help center access</li>
+                            <li>Nom d'Utilisateur</li>
+                            <li>Mot de Passe</li>
                         </ul>
+                    </div>
+                    <div class="card-footer">
                         <a href="viewlogin.php"><button type="button" class="btn btn-lg btn-block btn-primary">Sign In</button></a>
                     </div>
                 </div>
                 <div class="card mb-4 box-shadow">
                     <div class="card-header">
-                        <h4 class="my-0 font-weight-normal">Inscription</h4>
+                        <h4 class="my-0 font-weight-normal">Inscrivez-vous</h4>
                     </div>
                     <div class="card-body">
-                        <h1 class="card-title pricing-card-title">$15 <small class="text-muted">/ mo</small></h1>
+                        <h1 class="card-title pricing-card-title">Administrateur</h1>
                         <ul class="list-unstyled mt-3 mb-4">
-                            <li>20 users included</li>
-                            <li>10 GB of storage</li>
-                            <li>Priority email support</li>
-                            <li>Help center access</li>
+                            <li>Nom d'Utilisateur</li>
+                            <li>Mot de Passe</li>
+                            <li>Nom</li>
+                            <li>Prénom</li>
+                            <li>Adresse-mail</li>
                         </ul>
+                    </div>
+                    <div class="card-footer">
                         <a href="viewnewuser.php"><button type="button" class="btn btn-lg btn-block btn-primary">Sign Up</button></a>
                     </div>
                 </div>

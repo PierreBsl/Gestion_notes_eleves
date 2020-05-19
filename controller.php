@@ -50,14 +50,16 @@ function ConnectUser($login, $password){
     $r=$sth->fetchAll();
 
     if (password_verify($password, $r[0]['password'])){
-        $_SESSION["adminId"] = $r[0]['id'];
-        $_SESSION["adminPrenom"] = $r[0]['prenom'];
-        $_SESSION["adminNom"] = $r[0]['nom'];
+
         header("Location: viewadmin.php");
     }
     else {
         echo "Wrong Login or Password";
     }
+    session_start();
+    $_SESSION["adminId"] = $r[0]['id'];
+    $_SESSION["adminPrenom"] = $r[0]['prenom'];
+    $_SESSION["adminNom"] = $r[0]['nom'];
 }
 
 function CreateStudent($nom, $prenom, $note) {
@@ -141,7 +143,7 @@ function NotesAverage(){
     $sommeNotes = 0;
     $nbr_students = 0;
 
-    $q = "SELECT note FROM students ";
+    $q = "SELECT note FROM students WHERE user_id=".$_SESSION['adminId'];
     $r = $db->query($q);
     foreach ($r as $data) {
         $sommeNotes+=$data['note'];
