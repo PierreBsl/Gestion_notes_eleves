@@ -39,18 +39,6 @@ echo '
 
 echo'<br>
     <h3>Liste des étudiants</h3>';
-echo'<table class="table">
-        <thead>
-            <tr>
-                <th scope="col">#</th>
-                <th scope="col">Nom</th>
-                <th scope="col">Prénom</th>
-                <th scope="col">Note</th>
-                <th scope="col"></th>
-                <th scope="col"></th>
-            </tr>
-        </thead>
-        <tbody>';
 ReadStudent();
 echo '<br>
     <div>
@@ -59,8 +47,5 @@ echo '<br>
         </a>
     </div>';
 
-echo'<br>
-    <h3>Moyenne des étudiants</h3><hr>';
-echo'<h2>';
 NotesAverage();
-echo '</h3></div></main></html>';
+echo '</div></main></html>';

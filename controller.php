@@ -56,7 +56,6 @@ function ConnectUser($login, $password){
     else {
         echo "Wrong Login or Password";
     }
-    session_start();
     $_SESSION["adminId"] = $r[0]['id'];
     $_SESSION["adminPrenom"] = $r[0]['prenom'];
     $_SESSION["adminNom"] = $r[0]['nom'];
@@ -97,6 +96,18 @@ function ReadStudent() {
     }
 
     if($nbr_student>=1) {
+        echo'<table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Note</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>';
         $query1 = "SELECT id, nom, prenom, note FROM students WHERE user_id =".$_SESSION["adminId"];
         $sth = $db->prepare($query1);
         $sth->execute();
@@ -115,6 +126,8 @@ function ReadStudent() {
         }
         echo '</tbody>';
         echo '</table>';
+    }else{
+        return;
     }
 }
 
@@ -149,6 +162,15 @@ function NotesAverage(){
         $sommeNotes+=$data['note'];
         $nbr_students++;
     }
-    $moyenne=$sommeNotes/$nbr_students;
-    echo $moyenne;
+    if ($nbr_students>0){
+
+        echo'<br>
+    <h3>Moyenne des étudiants</h3><hr>';
+        echo'<h2>';
+        $moyenne=$sommeNotes/$nbr_students;
+        echo $moyenne."</h2>";
+    }else {
+        return;
+    }
+
 }
