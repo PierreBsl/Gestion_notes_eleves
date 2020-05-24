@@ -36,7 +36,7 @@ if(!isset($_SESSION['adminId'])){
 
     echo '<body>
     <div class="container col-sm-8 jumbotron">
-    <h1>Edit Student Information</h1><hr>
+    <h1>Éditer les Informations de l\'élève </h1><hr>
         <form action="controller.php?func=UpdateStudent" method="POST">
             <div class="form-group">
                 <label>Nom</label>
@@ -51,7 +51,7 @@ if(!isset($_SESSION['adminId'])){
                 <input name="noteUpdateStudent" type="number" class="form-control" min="0" max="20" placeholder="' . $note . '" required>
             </div>
             <br>
-            <button name = "Update" value="' . $id . '" type="submit" class="btn btn-primary">Validate</button>
+            <button name = "Update" value="' . $id . '" type="submit" class="btn btn-primary">Valider</button>
         </form>
     </div>
 </body>

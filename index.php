@@ -44,7 +44,7 @@ $db = connexpdo('pgsql:dbname=etudiants;host=localhost;port=5433','postgres','ne
                         </ul>
                     </div>
                     <div class="card-footer">
-                        <a href="viewlogin.php"><button type="button" class="btn btn-lg btn-block btn-primary">Sign In</button></a>
+                        <a href="viewlogin.php"><button type="button" class="btn btn-lg btn-block btn-primary">Se Connecter</button></a>
                     </div>
                 </div>
                 <div class="card mb-4 box-shadow">
@@ -62,7 +62,7 @@ $db = connexpdo('pgsql:dbname=etudiants;host=localhost;port=5433','postgres','ne
                         </ul>
                     </div>
                     <div class="card-footer">
-                        <a href="viewnewuser.php"><button type="button" class="btn btn-lg btn-block btn-primary">Sign Up</button></a>
+                        <a href="viewnewuser.php"><button type="button" class="btn btn-lg btn-block btn-primary">S'inscrire</button></a>
                     </div>
                 </div>
             </div>

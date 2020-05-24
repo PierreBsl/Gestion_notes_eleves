@@ -26,7 +26,7 @@ if(isset($_SESSION['adminId'])){
 else {
 
    echo '<div class="container col-sm-8 jumbotron" >
-    <h1 > Sign In </h1 ><hr >
+    <h1 > Se Connecter </h1 ><hr >
     <form action = "controller.php?func=ConnectUser" method = "POST" >
         <input type = "text" name = "loginConnect" class="form-control" placeholder = "Login" required >
         <br >
@@ -34,7 +34,7 @@ else {
         <input type = "password" name = "passwordConnect" class="form-control" placeholder = "Password" required >
         <br >
 
-        <button class="btn btn-lg btn-primary btn-block" type = "submit" > Sign in </button >
+        <button class="btn btn-lg btn-primary btn-block" type = "submit" > Valider </button >
     </form >
 </div >
 </body >

@@ -33,7 +33,7 @@ if(!isset($_SESSION['adminId'])){
 
     echo '
 <div class="container col-sm-9 jumbotron" id="contact">
-    <h2 style="display: inline;">Admin Panel of ' . $user_prenom . ' ' . $user_nom . '</h2>
+    <h2 style="display: inline;">Menu Administrateur de ' . $user_prenom . ' ' . $user_nom . '</h2>
         <a style="float: right;" href="controller.php?func=Disconnect">
             <button class="btn btn-info">Deconnexion</button>
         </a>

@@ -27,7 +27,7 @@ else {
 
     echo '<body>
     <div class="container col-sm-8 jumbotron">
-    <h1>Sign Up</h1><hr>
+    <h1>S\'inscrire</h1><hr>
         <form action="controller.php?func=CreateUser" method="POST">
             <div class="form-group">
                 <label>Login</label>
@@ -50,7 +50,7 @@ else {
                 <input name="mail" type="text" class="form-control" required>
             </div>
             <br>
-            <button name = "validation" type="submit" class="btn btn-primary">Validate</button>
+            <button name = "validation" type="submit" class="btn btn-primary">Valider</button>
         </form>
     </div>
 </body>
