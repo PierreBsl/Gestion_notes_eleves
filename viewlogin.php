@@ -1,12 +1,3 @@
-<?php
-session_start();
-
-if(isset($_SESSION['login'])){
-    header('Location: viewadmin.php');
-    exit;
-}
-?>
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -25,21 +16,34 @@ if(isset($_SESSION['login'])){
     </button>
 </nav>
 <body>
-<div class="container col-sm-8 jumbotron">
-    <h1>Sign In</h1><hr>
-    <form action="controller.php?func=ConnectUser" method="POST">
-        <input type="text" name="loginConnect" class="form-control" placeholder="Login" required>
-        <br>
+<?php
+session_start();
 
-        <input type="password" name="passwordConnect" class="form-control" placeholder="Password" required>
-        <br>
+if(isset($_SESSION['adminId'])){
+    header('Location: viewadmin.php');
+    exit;
+}
+else {
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-    </form>
-</div>
-</body>
+   echo '<div class="container col-sm-8 jumbotron" >
+    <h1 > Sign In </h1 ><hr >
+    <form action = "controller.php?func=ConnectUser" method = "POST" >
+        <input type = "text" name = "loginConnect" class="form-control" placeholder = "Login" required >
+        <br >
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
-</html>
+        <input type = "password" name = "passwordConnect" class="form-control" placeholder = "Password" required >
+        <br >
+
+        <button class="btn btn-lg btn-primary btn-block" type = "submit" > Sign in </button >
+    </form >
+</div >
+</body >
+
+<script src = "https://code.jquery.com/jquery-3.5.1.slim.min.js" ></script >
+<script src = "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" ></script >
+<script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" ></script >
+</html>';
+
+    }
+
+?>

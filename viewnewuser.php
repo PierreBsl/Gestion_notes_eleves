@@ -15,9 +15,17 @@
 </nav>
 <?php
 
-include 'controller.php';
+session_start();
 
-echo '<body>
+if (isset($_SESSION['adminId'])){
+    header('Location: viewadmin.php');
+    exit;
+}
+else {
+
+    include 'controller.php';
+
+    echo '<body>
     <div class="container col-sm-8 jumbotron">
     <h1>Sign Up</h1><hr>
         <form action="controller.php?func=CreateUser" method="POST">
@@ -45,7 +53,8 @@ echo '<body>
             <button name = "validation" type="submit" class="btn btn-primary">Validate</button>
         </form>
     </div>
-</body>';
+</body>
+</html>';
 
+}
 ?>
-</html>
