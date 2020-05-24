@@ -40,15 +40,15 @@ if(!isset($_SESSION['adminId'])){
         <form action="controller.php?func=UpdateStudent" method="POST">
             <div class="form-group">
                 <label>Nom</label>
-                <input name="nomUpdateStudent" type="text" class="form-control" placeholder="' . $nom . '" required>
+                <input name="nomUpdateStudent" type="text" class="form-control" value="' . $nom . '" placeholder="' . $nom . '">
             </div>
             <div class="form-group">
                 <label>Prénom</label>
-                <input name="prenomUpdateStudent" type="text" class="form-control" placeholder="' . $prenom . '" required>
+                <input name="prenomUpdateStudent" type="text" class="form-control" value="' . $prenom . '" placeholder="' . $prenom . '">
             </div>
             <div class="form-group">
                 <label>Note</label>
-                <input name="noteUpdateStudent" type="number" class="form-control" min="0" max="20" placeholder="' . $note . '" required>
+                <input name="noteUpdateStudent" type="number" class="form-control" min="0" max="20" value="' . $note . '" placeholder="' . $note . '">
             </div>
             <br>
             <button name = "Update" value="' . $id . '" type="submit" class="btn btn-primary">Valider</button>
