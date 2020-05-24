@@ -15,10 +15,18 @@
 </nav>
 <?php
 session_start();
-include 'controller.php';
-$db = connexpdo('pgsql:dbname=etudiants;host=localhost;port=5433','postgres','new_password');
-$id = $_GET['id'];
-$sql = "SELECT nom, prenom, note FROM students WHERE id =".$id;
+if(!isset($_SESSION['adminId'])){
+    header('Location: index.php');
+}else {
+    $user_id = $_SESSION["adminId"];
+    $user_nom = $_SESSION["adminNom"];
+    $user_prenom = $_SESSION["adminPrenom"];
+    include "controller.php";
+
+    $db = connexpdo('pgsql:dbname=etudiants;host=localhost;port=5433', 'postgres', 'new_password');
+
+    $id = $_GET['id'];
+    $sql = "SELECT nom, prenom, note FROM students WHERE id =" . $id;
     $r = $db->query($sql);
     foreach ($r as $data) {
         $nom = $data['nom'];
@@ -26,26 +34,27 @@ $sql = "SELECT nom, prenom, note FROM students WHERE id =".$id;
         $note = $data['note'];
     }
 
-echo '<body>
+    echo '<body>
     <div class="container col-sm-8 jumbotron">
     <h1>Edit Student Information</h1><hr>
         <form action="controller.php?func=UpdateStudent" method="POST">
             <div class="form-group">
                 <label>Nom</label>
-                <input name="nomUpdateStudent" type="text" class="form-control" placeholder="'.$nom.'" required>
+                <input name="nomUpdateStudent" type="text" class="form-control" placeholder="' . $nom . '" required>
             </div>
             <div class="form-group">
                 <label>Prénom</label>
-                <input name="prenomUpdateStudent" type="text" class="form-control" placeholder="'.$prenom.'" required>
+                <input name="prenomUpdateStudent" type="text" class="form-control" placeholder="' . $prenom . '" required>
             </div>
             <div class="form-group">
                 <label>Note</label>
-                <input name="noteUpdateStudent" type="number" class="form-control" min="0" max="20" placeholder="'.$note.'" required>
+                <input name="noteUpdateStudent" type="number" class="form-control" min="0" max="20" placeholder="' . $note . '" required>
             </div>
             <br>
-            <button name = "Update" value="'.$id.'" type="submit" class="btn btn-primary">Validate</button>
+            <button name = "Update" value="' . $id . '" type="submit" class="btn btn-primary">Validate</button>
         </form>
     </div>
-</body>';
+</body>
+</html>';
+}
 ?>
-</html>

@@ -1,3 +1,12 @@
+<?php
+session_start();
+
+if(isset($_SESSION['login'])){
+    header('Location: viewadmin.php');
+    exit;
+}
+?>
+
 <!doctype html>
 <html lang="en">
 <head>

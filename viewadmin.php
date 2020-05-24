@@ -21,30 +21,35 @@
 <!-- Contact -->
 <?php
 session_start();
-$user_id = $_SESSION["adminId"];
-$user_nom = $_SESSION["adminNom"];
-$user_prenom = $_SESSION["adminPrenom"];
-include "controller.php";
+if(!isset($_SESSION['adminId'])){
+    header('Location: index.php');
+}else {
+    $user_id = $_SESSION["adminId"];
+    $user_nom = $_SESSION["adminNom"];
+    $user_prenom = $_SESSION["adminPrenom"];
+    include "controller.php";
 
-$db = connexpdo('pgsql:dbname=etudiants;host=localhost;port=5433','postgres','new_password');
+    $db = connexpdo('pgsql:dbname=etudiants;host=localhost;port=5433', 'postgres', 'new_password');
 
-echo '
+    echo '
 <div class="container col-sm-9 jumbotron" id="contact">
-    <h2 style="display: inline;">Admin Panel of '.$user_prenom .' '. $user_nom.'</h2>
+    <h2 style="display: inline;">Admin Panel of ' . $user_prenom . ' ' . $user_nom . '</h2>
         <a style="float: right;" href="controller.php?func=Disconnect">
             <button class="btn btn-info">Deconnexion</button>
         </a>
     <hr>';
 
-echo'<br>
+    echo '<br>
     <h3>Liste des étudiants</h3>';
-ReadStudent();
-echo '<br>
+    ReadStudent();
+    echo '<br>
     <div>
         <a href="viewnewstudent.php" class="button-pe-connect is-blue" data-toggle="tooltip" data-placement="bottom" title="">
             <button class="btn btn-info">Ajouter un étudiant</button>
         </a>
     </div>';
 
-NotesAverage();
-echo '</div></main></html>';
+    NotesAverage();
+    echo '</div></main></html>';
+
+}

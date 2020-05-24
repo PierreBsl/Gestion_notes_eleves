@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 include 'database/connexpdo.php';
 
@@ -44,6 +43,7 @@ function CreateUser($login, $password, $mail, $nom, $prenom) {
 }
 
 function ConnectUser($login, $password) {
+    session_start();
 
     $db = connexpdo('pgsql:dbname=etudiants;host=localhost;port=5433', 'postgres', 'new_password');
 
@@ -176,5 +176,8 @@ function NotesAverage(){
 }
 
 function Disconnect(){
-    if(isset($_SESSION))unset($_SESSION);
+    session_start();
+    session_destroy();
+    header('Location: index.php');
+    exit;
 }

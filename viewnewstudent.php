@@ -15,9 +15,18 @@
 </nav>
 <?php
 session_start();
-include 'controller.php';
+if(!isset($_SESSION['adminId'])){
+    header('Location: index.php');
+}else {
+    $user_id = $_SESSION["adminId"];
+    $user_nom = $_SESSION["adminNom"];
+    $user_prenom = $_SESSION["adminPrenom"];
+    include "controller.php";
 
-echo '<body>
+    $db = connexpdo('pgsql:dbname=etudiants;host=localhost;port=5433', 'postgres', 'new_password');
+
+
+    echo '<body>
     <div class="container col-sm-8 jumbotron">
     <h1>Create new Student</h1><hr>
         <form action="controller.php?func=CreateStudent" method="POST">
@@ -37,7 +46,7 @@ echo '<body>
             <button name = "validation" type="submit" class="btn btn-primary">Validate</button>
         </form>
     </div>
-</body>';
-
+</body>
+</html>';
+}
 ?>
-</html>
